@@ -1,0 +1,22 @@
+# Media library (too large for normal Git history)
+Bridget\ and\ Mary\ Jo/
+ISOs/
+VOD/
+Combined/
+Live/
+Christmas/
+Shorts/
+Kickstaerter/
+Just\ the\ Jokes/
+Mathew\ J\ Elliot/
+Hangin\ Out\ with\ RiffTrax/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+
+# Local caches
+$$JetTHM$$.cache
+
+# Editor/Cursor local state
+.cursor/
