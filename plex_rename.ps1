@@ -12,6 +12,7 @@ $ErrorActionPreference = 'Stop'
 
 $LogPath = if ($LogPathOverride) { $LogPathOverride } else { Join-Path -Path $RootPath -ChildPath 'plex_rename_log.csv' }
 $TvRootPath = Join-Path -Path $RootPath -ChildPath 'Combined\TV'
+$ImdbCachePath = Join-Path -Path $RootPath -ChildPath 'imdb_cache.csv'
 
 $VideoExtensions = [string[]]@(
     '.mkv', '.mp4', '.avi', '.m4v', '.mov', '.wmv', '.webm', '.mpg', '.mpeg', '.ts', '.m2ts'
@@ -30,6 +31,33 @@ if ($DoIt) {
 if (-not $DoIt) {
     Write-Output 'Refusing to run without -DoIt'
     exit 2
+}
+
+$ImdbCacheByQuery = @{}
+$ImdbCacheById = @{}
+
+if (Test-Path -LiteralPath $ImdbCachePath) {
+    $rows = Import-Csv -LiteralPath $ImdbCachePath -ErrorAction Stop
+    foreach ($row in $rows) {
+        if ([string]::IsNullOrWhiteSpace($row.QueryKey)) {
+            continue
+        }
+        if ([string]::IsNullOrWhiteSpace($row.Title)) {
+            continue
+        }
+        if ([string]::IsNullOrWhiteSpace($row.Year)) {
+            continue
+        }
+        $entry = [pscustomobject]@{
+            ImdbId = [string]$row.ImdbId
+            Title  = [string]$row.Title
+            Year   = [int]$row.Year
+        }
+        $ImdbCacheByQuery[[string]$row.QueryKey] = $entry
+        if (-not [string]::IsNullOrWhiteSpace([string]$row.ImdbId)) {
+            $ImdbCacheById[[string]$row.ImdbId] = $entry
+        }
+    }
 }
 
 function Write-LogLine {
@@ -303,6 +331,11 @@ function Get-MovieFromIMDb {
         $QueryTitle = ($QueryTitle -replace '\s+', '')
     }
 
+    $queryKey = ($QueryTitle.Trim().ToLowerInvariant())
+    if ($ImdbCacheByQuery.ContainsKey($queryKey)) {
+        return $ImdbCacheByQuery[$queryKey]
+    }
+
     $ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36'
     $encQ = [System.Uri]::EscapeDataString($QueryTitle)
     $findUrl = "https://www.imdb.com/find/?q=$encQ&s=tt&ttype=ft"
@@ -334,7 +367,18 @@ function Get-MovieFromIMDb {
     $name = $mn.Groups['name'].Value
     $date = $md.Groups['date'].Value
     $year = [int]($date.Substring(0,4))
-    return [pscustomobject]@{ Title = $name; Year = $year }
+    $resolved = [pscustomobject]@{ ImdbId = $ttId; Title = $name; Year = $year }
+
+    $ImdbCacheByQuery[$queryKey] = $resolved
+    $ImdbCacheById[$ttId] = $resolved
+    [pscustomobject]@{
+        QueryKey = $queryKey
+        ImdbId   = $ttId
+        Title    = $name
+        Year     = $year
+    } | Export-Csv -LiteralPath $ImdbCachePath -NoTypeInformation -Encoding UTF8 -Append
+
+    return $resolved
 }
 
 function Get-MovieFromIMDbId {
@@ -342,6 +386,10 @@ function Get-MovieFromIMDbId {
         [Parameter(Mandatory = $true)]
         [string]$ImdbId
     )
+
+    if ($ImdbCacheById.ContainsKey($ImdbId)) {
+        return $ImdbCacheById[$ImdbId]
+    }
 
     $ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36'
     $titleUrl = "https://www.imdb.com/title/$ImdbId/"
@@ -362,7 +410,21 @@ function Get-MovieFromIMDbId {
     $name = $mn.Groups['name'].Value
     $date = $md.Groups['date'].Value
     $year = [int]($date.Substring(0,4))
-    return [pscustomobject]@{ Title = $name; Year = $year }
+    $resolved = [pscustomobject]@{ ImdbId = $ImdbId; Title = $name; Year = $year }
+
+    $idQueryKey = ([string]$name).Trim().ToLowerInvariant()
+    $ImdbCacheById[$ImdbId] = $resolved
+    if (-not [string]::IsNullOrWhiteSpace($idQueryKey)) {
+        $ImdbCacheByQuery[$idQueryKey] = $resolved
+    }
+    [pscustomobject]@{
+        QueryKey = $idQueryKey
+        ImdbId   = $ImdbId
+        Title    = $name
+        Year     = $year
+    } | Export-Csv -LiteralPath $ImdbCachePath -NoTypeInformation -Encoding UTF8 -Append
+
+    return $resolved
 }
 
 function Get-MovieTargetPath {
