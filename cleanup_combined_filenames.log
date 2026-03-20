@@ -1,3 +1,109 @@
-Script="\\amber\Rifftrax\cleanup_combined_filenames.ps1" ScriptLastWriteUtc=2026-03-19T23:35:10.2870731Z TargetRoot="\\amber\Rifftrax\Combined" NoPrettySpaces=True
+Script="\\amber\Rifftrax\cleanup_combined_filenames.ps1" ScriptLastWriteUtc=2026-03-19T23:35:10.2870731Z TargetRoot="\\amber\Rifftrax\Combined" NoPrettySpaces=False
 
-Done. Renamed=0 Skipped=107 (empty=0 already_ok=107) Conflicts=0 Locked=0 Failed=0 TargetRoot=\\amber\Rifftrax\Combined
+RENAMED	AeonFlux.mkv	A e o n F l u x.mkv
+RENAMED	Alien.mkv	A l i e n.mkv
+RENAMED	Anaconda.mkv	A n a c o n d a.mkv
+RENAMED	Batma n&R obin.avi	B a t m a n&R o b i n.avi
+RENAMED	BatmanVSupermanDawnOfJusticeTheatrical.mkv	B a t m a n V S u p e r m a n D a w n O f J u s t i c e T h e a t r i c a l.mkv
+RENAMED	BattlefieldEarth.mkv	B a t t l e f i e l d E a r t h.mkv
+RENAMED	Beowulf 2007.mkv	B e o w u l f 2007.mkv
+RENAMED	CaptainAmericaTheFirstAvenger.mkv	C a p t a i n A m e r i c a T h e F i r s t A v e n g e r.mkv
+RENAMED	Casablanca.avi	C a s a b l a n c a.avi
+RENAMED	CasinoRoyale.mkv	C a s i n o R o y a l e.mkv
+RENAMED	Cats 2019.mkv	C a t s 2019.mkv
+RENAMED	ClashOfTheTitans.mkv	C l a s h O f T h e T i t a n s.mkv
+RENAMED	Cloverfield.mp4	C l o v e r f i e l d.mp4
+RENAMED	Cobra 1986.mkv	C o b r a 1986.mkv
+RENAMED	Daredevil.avi	D a r e d e v i l.avi
+RENAMED	DragonWarsDWar.mkv	D r a g o n W a r s D W a r.mkv
+RENAMED	Dune 2021.mkv	D u n e 2021.mkv
+RENAMED	Eragon.mkv	E r a g o n.mkv
+RENAMED	FastAndFurious.mkv	F a s t A n d F u r i o u s.mkv
+RENAMED	Gravity.mkv	G r a v i t y.mkv
+RENAMED	Halloween.mkv	H a l l o w e e n.mkv
+RENAMED	Highlander.mp4	H i g h l a n d e r.mp4
+RENAMED	IAmLegend.mkv	I A m L e g e n d.mkv
+RENAMED	IndependenceDay.mkv	I n d e p e n d e n c e D a y.mkv
+RENAMED	Jaws 1975.mkv	J a w s 1975.mkv
+RENAMED	Krull 1983.mkv	K r u l l 1983.mkv
+RENAMED	LostBoys.mkv	L o s t B o y s.mkv
+RENAMED	MoneyPlane 2020.mkv	M o n e y P l a n e 2020.mkv
+RENAMED	MortalKombat 1995.mkv	M o r t a l K o m b a t 1995.mkv
+RENAMED	Mothra.mkv	M o t h r a.mkv
+RENAMED	Next 2007.mkv	N e x t 2007.mkv
+RENAMED	OceansEleven.mkv	O c e a n s E l e v e n.mkv
+RENAMED	OverTheTop.avi	O v e r T h e T o p.avi
+RENAMED	ParanormalActivity.mkv	P a r a n o r m a l A c t i v i t y.mkv
+RENAMED	PiratesOfTheCaribbeanCurseOfTheBlackPearl.mkv	P i r a t e s O f T h e C a r i b b e a n C u r s e O f T h e B l a c k P e a r l.mkv
+RENAMED	Poltergeis t1982c irculatethetapes.mkv	P o l t e r g e i s t1982c i r c u l a t e t h e t a p e s.mkv
+RENAMED	Predator.avi	P r e d a t o r.avi
+RENAMED	ReadyPlayerOne.mkv	R e a d y P l a y e r O n e.mkv
+RENAMED	RedDawn.mkv	R e d D a w n.mkv
+RENAMED	ReignOfFire.mkv	R e i g n O f F i r e.mkv
+RENAMED	RoadHouse 1989.mkv	R o a d H o u s e 1989.mkv
+RENAMED	RunningMan.avi	R u n n i n g M a n.avi
+RENAMED	StarshipTroopers.mkv	S t a r s h i p T r o o p e r s.mkv
+RENAMED	StreetFighter 1994.mkv	S t r e e t F i g h t e r 1994.mkv
+RENAMED	TheFifthElement.mkv	T h e F i f t h E l e m e n t.mkv
+RENAMED	TheGrudge.mkv	T h e G r u d g e.mkv
+RENAMED	TheHappening 2008.mkv	T h e H a p p e n i n g 2008.mkv
+RENAMED	TheIslandOfDrMoreau.mkv	T h e I s l a n d O f D r M o r e a u.mkv
+RENAMED	TheWizardofO z(1939).mkv	T h e W i z a r d o f O z(1939).mkv
+RENAMED	Titanic.mkv	T i t a n i c.mkv
+RENAMED	TopGunMaverick 2022.mkv	T o p G u n M a v e r i c k 2022.mkv
+RENAMED	WickerMan.avi	W i c k e r M a n.avi
+RENAMED	WillyWonkaAndTheChocolateFactory.mkv	W i l l y W o n k a A n d T h e C h o c o l a t e F a c t o r y.mkv
+RENAMED	WonderWoma n1984 2020.mkv	W o n d e r W o m a n1984 2020.mkv
+RENAMED	HarryPotte r1A ndTheSorcerersSton e2001W izardPeopleDearReader.mkv	H a r r y P o t t e r1A n d T h e S o r c e r e r s S t o n e2001W i z a r d P e o p l e D e a r R e a d e r.mkv
+RENAMED	HarryPotte r2A ndTheChamberOfSecrets.mkv	H a r r y P o t t e r2A n d T h e C h a m b e r O f S e c r e t s.mkv
+RENAMED	HarryPotte r3A ndThePrisonerOfAzkaban.mkv	H a r r y P o t t e r3A n d T h e P r i s o n e r O f A z k a b a n.mkv
+RENAMED	HarryPotte r4A ndTheGobletOfFire.mkv	H a r r y P o t t e r4A n d T h e G o b l e t O f F i r e.mkv
+RENAMED	HarryPotte r5A ndTheOrderOfThePhoenix.mkv	H a r r y P o t t e r5A n d T h e O r d e r O f T h e P h o e n i x.mkv
+RENAMED	HarryPotte r6A ndTheHalfBloodPrince.mkv	H a r r y P o t t e r6A n d T h e H a l f B l o o d P r i n c e.mkv
+RENAMED	HarryPotte r7A ndTheDeathlyHallowsPar t1.mkv	H a r r y P o t t e r7A n d T h e D e a t h l y H a l l o w s P a r t1.mkv
+RENAMED	HarryPotte r8A ndTheDeathlyHallowsPar t2.mkv	H a r r y P o t t e r8A n d T h e D e a t h l y H a l l o w s P a r t2.mkv
+RENAMED	CrystalSkull.avi	C r y s t a l S k u l l.avi
+RENAMED	IndianaJonesAndTheTempleOfDoom 1984.mp4	I n d i a n a J o n e s A n d T h e T e m p l e O f D o o m 1984.mp4
+RENAMED	RaidersoftheLostArk.mkv	R a i d e r s o f t h e L o s t A r k.mkv
+RENAMED	JurassicPar k199.mkv	J u r a s s i c P a r k199.mkv
+RENAMED	JurassicParkIII.avi	J u r a s s i c P a r k I I I.avi
+RENAMED	JurassicWorld 2015.mkv	J u r a s s i c W o r l d 2015.mkv
+RENAMED	JurassicWorldFallenKingdom 2018.mkv	J u r a s s i c W o r l d F a l l e n K i n g d o m 2018.mkv
+RENAMED	LOT R1F ellowshipOfTheRingTheatrical 2001.mkv	L O T R1F e l l o w s h i p O f T h e R i n g T h e a t r i c a l 2001.mkv
+RENAMED	LOT R2T woTowersTheatrical 2002.mkv	L O T R2T w o T o w e r s T h e a t r i c a l 2002.mkv
+RENAMED	LOT R3R eturnOfTheKingTheatrical 2003.mkv	L O T R3R e t u r n O f T h e K i n g T h e a t r i c a l 2003.mkv
+RENAMED	Matrix 1999.mkv	M a t r i x 1999.mkv
+RENAMED	MatrixReloaded 2003.mkv	M a t r i x R e l o a d e d 2003.mkv
+RENAMED	MatrixRevolutions 2003.mkv	M a t r i x R e v o l u t i o n s 2003.mkv
+RENAMED	SpiderMa n2 2004.mkv	S p i d e r M a n2 2004.mkv
+RENAMED	SpiderMa n3 2007.mkv	S p i d e r M a n3 2007.mkv
+RENAMED	SpiderMan 2002.mkv	S p i d e r M a n 2002.mkv
+RENAMED	StarTrek 2009.mkv	S t a r T r e k 2009.mkv
+RENAMED	StarTrekIITheWrathOfKhan 1982.mkv	S t a r T r e k I I T h e W r a t h O f K h a n 1982.mkv
+RENAMED	StarWarsEpisodeIIAttackOfTheClones.mkv	S t a r W a r s E p i s o d e I I A t t a c k O f T h e C l o n e s.mkv
+RENAMED	StarWarsEpisodeIIIRevengeOfTheSith.mkv	S t a r W a r s E p i s o d e I I I R e v e n g e O f T h e S i t h.mkv
+RENAMED	StarWarsEpisodeIThePhantomMenac e1999P linkett.mkv	S t a r W a r s E p i s o d e I T h e P h a n t o m M e n a c e1999P l i n k e t t.mkv
+RENAMED	StarWarsEpisodeIVANewHop e19771080p Rifftra x6c h2c hPlinkett.mkv	S t a r W a r s E p i s o d e I V A N e w H o p e19771080p R i f f t r a x6c h2c h P l i n k e t t.mkv
+RENAMED	StarWarsEpisodeIVANewHope 1977.mkv	S t a r W a r s E p i s o d e I V A N e w H o p e 1977.mkv
+RENAMED	StarWarsEpisodeVIReturnOfTheJedi 1983.mkv	S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i 1983.mkv
+RENAMED	StarWarsEpisodeVIReturnOfTheJedi.mkv	S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i.mkv
+RENAMED	StarWarsEpisodeVTheEmpireStrikesBack 1980.mkv	S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k 1980.mkv
+RENAMED	StarWarsEpisodeVTheEmpireStrikesBack.mkv	S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k.mkv
+RENAMED	StarWarsRogueOne.mkv	S t a r W a r s R o g u e O n e.mkv
+RENAMED	StarWarsSolo 2018.mkv	S t a r W a r s S o l o 2018.mkv
+CONFLICT	\\amber\Rifftrax\Combined\Star Wars\StarWarsSolo2018.mkv	\\amber\Rifftrax\Combined\Star Wars\S t a r W a r s S o l o 2018.mkv
+RENAMED	StarWarsTheLastJedi.mkv	S t a r W a r s T h e L a s t J e d i.mkv
+RENAMED	TheStarWarsHolidaySpecialhighTV.mp4	T h e S t a r W a r s H o l i d a y S p e c i a l h i g h T V.mp4
+RENAMED	StarWarsEpisodeIVANewHope 1977.mkv	S t a r W a r s E p i s o d e I V A N e w H o p e 1977.mkv
+RENAMED	StarWarsEpisodeVIReturnOfTheJedi 1983.mkv	S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i 1983.mkv
+RENAMED	StarWarsEpisodeVTheEmpireStrikesBack 1980.mkv	S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k 1980.mkv
+RENAMED	Terminato r3R iseOfTheMachines 2003.mkv	T e r m i n a t o r3R i s e O f T h e M a c h i n e s 2003.mkv
+RENAMED	TotalRecallMindBendingEdition 1990.mp4	T o t a l R e c a l l M i n d B e n d i n g E d i t i o n 1990.mp4
+RENAMED	Heroes s01e01.mkv	H e r o e s s01e01.mkv
+RENAMED	StrangerThings s01e01 2016.mkv	S t r a n g e r T h i n g s s01e01 2016.mkv
+RENAMED	TheIncredibleHulkFinalRoun d1978c irculatethetapes.mkv	T h e I n c r e d i b l e H u l k F i n a l R o u n d1978c i r c u l a t e t h e t a p e s.mkv
+RENAMED	TheXFilesFightTheFuture 1998.mkv	T h e X F i l e s F i g h t T h e F u t u r e 1998.mkv
+RENAMED	StarTrek S04E03.mkv	S t a r T r e k S04E03.mkv
+RENAMED	TV S01E01.mkv	T V S01E01.mkv
+RENAMED	TV S01E02.mkv	T V S01E02.mkv
+Done. Renamed=105 Skipped=1 (empty=0 already_ok=1) Conflicts=1 Locked=0 Failed=0 TargetRoot=\\amber\Rifftrax\Combined

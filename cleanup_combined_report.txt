@@ -1,217 +1,323 @@
 Cleanup report (open with Notepad). RENAME = would change filename; SAME = already matches computed name.
-Script="\\amber\Rifftrax\cleanup_combined_filenames.ps1" ScriptLastWriteUtc=2026-03-19T23:35:10.2870731Z TargetRoot="\\amber\Rifftrax\Combined" NoPrettySpaces=True
+Script="\\amber\Rifftrax\cleanup_combined_filenames.ps1" ScriptLastWriteUtc=2026-03-19T23:35:10.2870731Z TargetRoot="\\amber\Rifftrax\Combined" NoPrettySpaces=False
 
 [SAME]   300
 
-[SAME]   AeonFlux
+[RENAME] AeonFlux
+      -> A e o n F l u x
 
-[SAME]   Alien
+[RENAME] Alien
+      -> A l i e n
 
-[SAME]   Anaconda
+[RENAME] Anaconda
+      -> A n a c o n d a
 
-[SAME]   Batma n&R obin
+[RENAME] Batma n&R obin
+      -> B a t m a n&R o b i n
 
-[SAME]   BatmanVSupermanDawnOfJusticeTheatrical
+[RENAME] BatmanVSupermanDawnOfJusticeTheatrical
+      -> B a t m a n V S u p e r m a n D a w n O f J u s t i c e T h e a t r i c a l
 
-[SAME]   BattlefieldEarth
+[RENAME] BattlefieldEarth
+      -> B a t t l e f i e l d E a r t h
 
-[SAME]   Beowulf 2007
+[RENAME] Beowulf 2007
+      -> B e o w u l f 2007
 
-[SAME]   CaptainAmericaTheFirstAvenger
+[RENAME] CaptainAmericaTheFirstAvenger
+      -> C a p t a i n A m e r i c a T h e F i r s t A v e n g e r
 
-[SAME]   Casablanca
+[RENAME] Casablanca
+      -> C a s a b l a n c a
 
-[SAME]   CasinoRoyale
+[RENAME] CasinoRoyale
+      -> C a s i n o R o y a l e
 
-[SAME]   Cats 2019
+[RENAME] Cats 2019
+      -> C a t s 2019
 
-[SAME]   ClashOfTheTitans
+[RENAME] ClashOfTheTitans
+      -> C l a s h O f T h e T i t a n s
 
-[SAME]   Cloverfield
+[RENAME] Cloverfield
+      -> C l o v e r f i e l d
 
-[SAME]   Cobra 1986
+[RENAME] Cobra 1986
+      -> C o b r a 1986
 
-[SAME]   Daredevil
+[RENAME] Daredevil
+      -> D a r e d e v i l
 
-[SAME]   DragonWarsDWar
+[RENAME] DragonWarsDWar
+      -> D r a g o n W a r s D W a r
 
-[SAME]   Dune 2021
+[RENAME] Dune 2021
+      -> D u n e 2021
 
-[SAME]   Eragon
+[RENAME] Eragon
+      -> E r a g o n
 
-[SAME]   FastAndFurious
+[RENAME] FastAndFurious
+      -> F a s t A n d F u r i o u s
 
-[SAME]   Gravity
+[RENAME] Gravity
+      -> G r a v i t y
 
-[SAME]   Halloween
+[RENAME] Halloween
+      -> H a l l o w e e n
 
-[SAME]   Highlander
+[RENAME] Highlander
+      -> H i g h l a n d e r
 
-[SAME]   IAmLegend
+[RENAME] IAmLegend
+      -> I A m L e g e n d
 
-[SAME]   IndependenceDay
+[RENAME] IndependenceDay
+      -> I n d e p e n d e n c e D a y
 
-[SAME]   Jaws 1975
+[RENAME] Jaws 1975
+      -> J a w s 1975
 
-[SAME]   Krull 1983
+[RENAME] Krull 1983
+      -> K r u l l 1983
 
-[SAME]   LostBoys
+[RENAME] LostBoys
+      -> L o s t B o y s
 
-[SAME]   MoneyPlane 2020
+[RENAME] MoneyPlane 2020
+      -> M o n e y P l a n e 2020
 
-[SAME]   MortalKombat 1995
+[RENAME] MortalKombat 1995
+      -> M o r t a l K o m b a t 1995
 
-[SAME]   Mothra
+[RENAME] Mothra
+      -> M o t h r a
 
-[SAME]   Next 2007
+[RENAME] Next 2007
+      -> N e x t 2007
 
-[SAME]   OceansEleven
+[RENAME] OceansEleven
+      -> O c e a n s E l e v e n
 
-[SAME]   OverTheTop
+[RENAME] OverTheTop
+      -> O v e r T h e T o p
 
-[SAME]   ParanormalActivity
+[RENAME] ParanormalActivity
+      -> P a r a n o r m a l A c t i v i t y
 
-[SAME]   PiratesOfTheCaribbeanCurseOfTheBlackPearl
+[RENAME] PiratesOfTheCaribbeanCurseOfTheBlackPearl
+      -> P i r a t e s O f T h e C a r i b b e a n C u r s e O f T h e B l a c k P e a r l
 
-[SAME]   Poltergeis t1982c irculatethetapes
+[RENAME] Poltergeis t1982c irculatethetapes
+      -> P o l t e r g e i s t1982c i r c u l a t e t h e t a p e s
 
-[SAME]   Predator
+[RENAME] Predator
+      -> P r e d a t o r
 
-[SAME]   ReadyPlayerOne
+[RENAME] ReadyPlayerOne
+      -> R e a d y P l a y e r O n e
 
-[SAME]   RedDawn
+[RENAME] RedDawn
+      -> R e d D a w n
 
-[SAME]   ReignOfFire
+[RENAME] ReignOfFire
+      -> R e i g n O f F i r e
 
-[SAME]   RoadHous e19891080p Rifftra x13R ifferRifftra x2M ike
+[RENAME] RoadHouse 1989
+      -> R o a d H o u s e 1989
 
-[SAME]   RunningMan
+[RENAME] RunningMan
+      -> R u n n i n g M a n
 
-[SAME]   StarshipTroopers
+[RENAME] StarshipTroopers
+      -> S t a r s h i p T r o o p e r s
 
-[SAME]   StreetFighter 1994
+[RENAME] StreetFighter 1994
+      -> S t r e e t F i g h t e r 1994
 
-[SAME]   TheFifthElement
+[RENAME] TheFifthElement
+      -> T h e F i f t h E l e m e n t
 
-[SAME]   TheGrudge
+[RENAME] TheGrudge
+      -> T h e G r u d g e
 
-[SAME]   TheHappening 2008
+[RENAME] TheHappening 2008
+      -> T h e H a p p e n i n g 2008
 
-[SAME]   TheIslandOfDrMoreau
+[RENAME] TheIslandOfDrMoreau
+      -> T h e I s l a n d O f D r M o r e a u
 
-[SAME]   TheWizardofO z(1939)
+[RENAME] TheWizardofO z(1939)
+      -> T h e W i z a r d o f O z(1939)
 
-[SAME]   Titanic
+[RENAME] Titanic
+      -> T i t a n i c
 
-[SAME]   TopGunMaverick 2022
+[RENAME] TopGunMaverick 2022
+      -> T o p G u n M a v e r i c k 2022
 
-[SAME]   WickerMan
+[RENAME] WickerMan
+      -> W i c k e r M a n
 
-[SAME]   WillyWonkaAndTheChocolateFactory
+[RENAME] WillyWonkaAndTheChocolateFactory
+      -> W i l l y W o n k a A n d T h e C h o c o l a t e F a c t o r y
 
-[SAME]   WonderWoma n1984 2020
+[RENAME] WonderWoma n1984 2020
+      -> W o n d e r W o m a n1984 2020
 
-[SAME]   HarryPotte r1A ndTheSorcerersSton e2001W izardPeopleDearReader
+[RENAME] HarryPotte r1A ndTheSorcerersSton e2001W izardPeopleDearReader
+      -> H a r r y P o t t e r1A n d T h e S o r c e r e r s S t o n e2001W i z a r d P e o p l e D e a r R e a d e r
 
-[SAME]   HarryPotte r2A ndTheChamberOfSecrets
+[RENAME] HarryPotte r2A ndTheChamberOfSecrets
+      -> H a r r y P o t t e r2A n d T h e C h a m b e r O f S e c r e t s
 
-[SAME]   HarryPotte r3A ndThePrisonerOfAzkaban
+[RENAME] HarryPotte r3A ndThePrisonerOfAzkaban
+      -> H a r r y P o t t e r3A n d T h e P r i s o n e r O f A z k a b a n
 
-[SAME]   HarryPotte r4A ndTheGobletOfFire
+[RENAME] HarryPotte r4A ndTheGobletOfFire
+      -> H a r r y P o t t e r4A n d T h e G o b l e t O f F i r e
 
-[SAME]   HarryPotte r5A ndTheOrderOfThePhoenix
+[RENAME] HarryPotte r5A ndTheOrderOfThePhoenix
+      -> H a r r y P o t t e r5A n d T h e O r d e r O f T h e P h o e n i x
 
-[SAME]   HarryPotte r6A ndTheHalfBloodPrince
+[RENAME] HarryPotte r6A ndTheHalfBloodPrince
+      -> H a r r y P o t t e r6A n d T h e H a l f B l o o d P r i n c e
 
-[SAME]   HarryPotte r7A ndTheDeathlyHallowsPar t1
+[RENAME] HarryPotte r7A ndTheDeathlyHallowsPar t1
+      -> H a r r y P o t t e r7A n d T h e D e a t h l y H a l l o w s P a r t1
 
-[SAME]   HarryPotte r8A ndTheDeathlyHallowsPar t2
+[RENAME] HarryPotte r8A ndTheDeathlyHallowsPar t2
+      -> H a r r y P o t t e r8A n d T h e D e a t h l y H a l l o w s P a r t2
 
-[SAME]   CrystalSkull
+[RENAME] CrystalSkull
+      -> C r y s t a l S k u l l
 
-[SAME]   IndianaJonesAndTheTempleOfDoom 1984 1080p BluRay x264 YIFY
+[RENAME] IndianaJonesAndTheTempleOfDoom 1984
+      -> I n d i a n a J o n e s A n d T h e T e m p l e O f D o o m 1984
 
-[SAME]   RaidersoftheLostArk
+[RENAME] RaidersoftheLostArk
+      -> R a i d e r s o f t h e L o s t A r k
 
-[SAME]   JurassicPar k199
+[RENAME] JurassicPar k199
+      -> J u r a s s i c P a r k199
 
-[SAME]   JurassicParkIII
+[RENAME] JurassicParkIII
+      -> J u r a s s i c P a r k I I I
 
-[SAME]   JurassicWorld 2015
+[RENAME] JurassicWorld 2015
+      -> J u r a s s i c W o r l d 2015
 
-[SAME]   JurassicWorldFallenKingdom 2018
+[RENAME] JurassicWorldFallenKingdom 2018
+      -> J u r a s s i c W o r l d F a l l e n K i n g d o m 2018
 
-[SAME]   LOT R1F ellowshipOfTheRingTheatrical 2001
+[RENAME] LOT R1F ellowshipOfTheRingTheatrical 2001
+      -> L O T R1F e l l o w s h i p O f T h e R i n g T h e a t r i c a l 2001
 
-[SAME]   LOT R2T woTowersTheatrical 2002
+[RENAME] LOT R2T woTowersTheatrical 2002
+      -> L O T R2T w o T o w e r s T h e a t r i c a l 2002
 
-[SAME]   LOT R3R eturnOfTheKingTheatrical 2003
+[RENAME] LOT R3R eturnOfTheKingTheatrical 2003
+      -> L O T R3R e t u r n O f T h e K i n g T h e a t r i c a l 2003
 
-[SAME]   Matrix 1999
+[RENAME] Matrix 1999
+      -> M a t r i x 1999
 
-[SAME]   MatrixReloaded 2003
+[RENAME] MatrixReloaded 2003
+      -> M a t r i x R e l o a d e d 2003
 
-[SAME]   MatrixRevolutions 2003
+[RENAME] MatrixRevolutions 2003
+      -> M a t r i x R e v o l u t i o n s 2003
 
-[SAME]   SpiderMa n2 2004
+[RENAME] SpiderMa n2 2004
+      -> S p i d e r M a n2 2004
 
-[SAME]   SpiderMa n3 2007
+[RENAME] SpiderMa n3 2007
+      -> S p i d e r M a n3 2007
 
-[SAME]   SpiderMan 2002
+[RENAME] SpiderMan 2002
+      -> S p i d e r M a n 2002
 
-[SAME]   StarTrek 2009
+[RENAME] StarTrek 2009
+      -> S t a r T r e k 2009
 
-[SAME]   StarTrekIITheWrathOfKhan 1982
+[RENAME] StarTrekIITheWrathOfKhan 1982
+      -> S t a r T r e k I I T h e W r a t h O f K h a n 1982
 
-[SAME]   StarWarsEpisodeIIAttackOfTheClones
+[RENAME] StarWarsEpisodeIIAttackOfTheClones
+      -> S t a r W a r s E p i s o d e I I A t t a c k O f T h e C l o n e s
 
-[SAME]   StarWarsEpisodeIIIRevengeOfTheSith
+[RENAME] StarWarsEpisodeIIIRevengeOfTheSith
+      -> S t a r W a r s E p i s o d e I I I R e v e n g e O f T h e S i t h
 
-[SAME]   StarWarsEpisodeIThePhantomMenac e1999P linkett
+[RENAME] StarWarsEpisodeIThePhantomMenac e1999P linkett
+      -> S t a r W a r s E p i s o d e I T h e P h a n t o m M e n a c e1999P l i n k e t t
 
-[SAME]   StarWarsEpisodeIVANewHop e19771080p Rifftra x6c h2c hPlinkett
+[RENAME] StarWarsEpisodeIVANewHop e19771080p Rifftra x6c h2c hPlinkett
+      -> S t a r W a r s E p i s o d e I V A N e w H o p e19771080p R i f f t r a x6c h2c h P l i n k e t t
 
-[SAME]   StarWarsEpisodeIVANewHop e1977P linkett
+[RENAME] StarWarsEpisodeIVANewHope 1977
+      -> S t a r W a r s E p i s o d e I V A N e w H o p e 1977
 
-[SAME]   StarWarsEpisodeVIReturnOfTheJedi 1983
+[RENAME] StarWarsEpisodeVIReturnOfTheJedi 1983
+      -> S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i 1983
 
-[SAME]   StarWarsEpisodeVIReturnOfTheJedi
+[RENAME] StarWarsEpisodeVIReturnOfTheJedi
+      -> S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i
 
-[SAME]   StarWarsEpisodeVTheEmpireStrikesBack 1980
+[RENAME] StarWarsEpisodeVTheEmpireStrikesBack 1980
+      -> S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k 1980
 
-[SAME]   StarWarsEpisodeVTheEmpireStrikesBack
+[RENAME] StarWarsEpisodeVTheEmpireStrikesBack
+      -> S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k
 
-[SAME]   StarWarsRogueOne
+[RENAME] StarWarsRogueOne
+      -> S t a r W a r s R o g u e O n e
 
-[SAME]   StarWarsSolo 2018
+[RENAME] StarWarsSolo 2018
+      -> S t a r W a r s S o l o 2018
 
-[SAME]   StarWarsSolo2018
+[RENAME] StarWarsSolo2018
+      -> S t a r W a r s S o l o 2018
 
-[SAME]   StarWarsTheLastJedi
+[RENAME] StarWarsTheLastJedi
+      -> S t a r W a r s T h e L a s t J e d i
 
-[SAME]   TheStarWarsHolidaySpecialhighTV
+[RENAME] TheStarWarsHolidaySpecialhighTV
+      -> T h e S t a r W a r s H o l i d a y S p e c i a l h i g h T V
 
-[SAME]   StarWarsEpisodeIVANewHope 1977 1080p Rifftrax 6ch 2ch Plinkett
+[RENAME] StarWarsEpisodeIVANewHope 1977
+      -> S t a r W a r s E p i s o d e I V A N e w H o p e 1977
 
-[SAME]   StarWarsEpisodeVIReturnOfTheJedi 1983
+[RENAME] StarWarsEpisodeVIReturnOfTheJedi 1983
+      -> S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i 1983
 
-[SAME]   StarWarsEpisodeVTheEmpireStrikesBack 1980
+[RENAME] StarWarsEpisodeVTheEmpireStrikesBack 1980
+      -> S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k 1980
 
-[SAME]   Terminato r3R iseOfTheMachines 2003
+[RENAME] Terminato r3R iseOfTheMachines 2003
+      -> T e r m i n a t o r3R i s e O f T h e M a c h i n e s 2003
 
-[SAME]   TotalRecallMindBendingEditio n19901080p BluRay x264Y IFY
+[RENAME] TotalRecallMindBendingEdition 1990
+      -> T o t a l R e c a l l M i n d B e n d i n g E d i t i o n 1990
 
-[SAME]   Heroes s01e01
+[RENAME] Heroes s01e01
+      -> H e r o e s s01e01
 
-[SAME]   StrangerThings s01e01 2016
+[RENAME] StrangerThings s01e01 2016
+      -> S t r a n g e r T h i n g s s01e01 2016
 
-[SAME]   TheIncredibleHulkFinalRoun d1978c irculatethetapes
+[RENAME] TheIncredibleHulkFinalRoun d1978c irculatethetapes
+      -> T h e I n c r e d i b l e H u l k F i n a l R o u n d1978c i r c u l a t e t h e t a p e s
 
-[SAME]   TheXFilesFightTheFuture 1998
+[RENAME] TheXFilesFightTheFuture 1998
+      -> T h e X F i l e s F i g h t T h e F u t u r e 1998
 
-[SAME]   StarTrek S04E03
+[RENAME] StarTrek S04E03
+      -> S t a r T r e k S04E03
 
-[SAME]   TV S01E01
+[RENAME] TV S01E01
+      -> T V S01E01
 
-[SAME]   TV S01E02
+[RENAME] TV S01E02
+      -> T V S01E02
 

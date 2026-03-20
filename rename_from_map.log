@@ -1,4 +1,14 @@
-Mode=Apply ColumnSeparator=Pipe RootPath=U:\.\Combined MapPath=\\amber\Rifftrax\combined_rename_map.txt Renames=0 SkippedLinesEmptyRight=107
+Mode=Apply ColumnSeparator=Csv RootPath=T:\Combined MapPath=\\amber\Rifftrax\combined_rename_map.csv RenamesPlanned=6 EmptyRightLines=103 EmptyRightVerifiedOk=0 FilesOnDiskUnderRoot=148
 
+--- Left column OK, right empty (no rename) ---
 
+SKIP_MISSING_OLD	Indianna Jones\IndianaJonesAndTheTempleOfDoom 1984 1080p BluRay x264 YIFY.mp4	Indianna Jones\Indiana Jones and the Temple of Doom (1984).mp4
+SKIP_MISSING_OLD	RoadHous e19891080p Rifftra x13R ifferRifftra x2M ike.mkv	Road House (1989).mkv
+SKIP_MISSING_OLD	Star Wars\Star.Wars.Original.Trilogy.ep4-6.1977-1983.1080p.Rifftrax.6ch.2ch.v2\StarWarsEpisodeIVANewHope 1977 1080p Rifftrax 6ch 2ch Plinkett.mkv	Star Wars\Star.Wars.Original.Trilogy.ep4-6.1977-1983.1080p.Rifftrax.6ch.2ch.v2\Star Wars Episode IV A New Hope (1977).mkv
+SKIP_MISSING_OLD	Star Wars\StarWarsEpisodeIVANewHop e1977P linkett.mkv	Star Wars\Star Wars Episode IV A New Hope (1977).mkv
+SKIP_MISSING_OLD	Total Recall\TotalRecallMindBendingEditio n19901080p BluRay x264Y IFY.mp4	Total Recall\Total Recall Mind-Bending Edition (1990).mp4
+PLAN	T:\Combined\Star Wars\S t a r W a r s E p i s o d e I V A N e w H o p e19771080p R i f f t r a x6c h2c h P l i n k e t t.mkv	->	T:\Combined\Star Wars\Star Wars Episode IV A New Hope (1977).mkv
+RENAMED	T:\Combined\Star Wars\S t a r W a r s E p i s o d e I V A N e w H o p e19771080p R i f f t r a x6c h2c h P l i n k e t t.mkv	->	T:\Combined\Star Wars\Star Wars Episode IV A New Hope (1977).mkv
+
+Summary: WouldRename=1 SkipSamePath=0 EmptyRightNoRename=103
 Done.
