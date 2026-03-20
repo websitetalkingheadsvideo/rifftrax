@@ -19,7 +19,8 @@ den4b ReNamer — Preview shows no changes (Mapping rule)
 
 5) USE IMPORT INSTEAD OF MAPPING (recommended for rest_of_repo)
    Files pane toolbar -> Export menu -> "Import file paths and new names"
-   File: rest_of_repo_import_paths_newnames.csv
+   File: renamer_no_combined_all_videos_import.csv (every video outside Combined\; unmapped = same name)
+   or renamer_no_combined_import_paths_newnames.csv / rest_of_repo_import_paths_newnames.csv (matched only)
    Paths are relative to the folder that contains that CSV (repo root). No Mapping rule.
    Remove other rules or preview after import only.
 

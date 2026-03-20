@@ -5,15 +5,22 @@ Match media under the repo root (excluding Combined/) for ReNamer.
 1) combined_rename_map.csv — progressive path suffix vs OldRel.
 2) imdb_title_year_from_log.csv — norm(file stem) vs norm(VideoName).
 
-Outputs:
-- rest_of_repo_import_paths_newnames.csv — den4b Files pane -> Export menu ->
-  "Import file paths and new names" (no Mapping rule).
+Outputs (ReNamer Import file paths and new names: column 1 must be absolute paths;
+den4b wiki states relative paths are not supported):
+- renamer_no_combined_all_videos_import.csv — every media file outside Combined\\; unmatched =
+  same filename.
+- renamer_no_combined_import_paths_newnames.csv — matched-only import.
+- rest_of_repo_import_paths_newnames.csv — same as renamer_no_combined_import_paths_newnames.csv.
+Use --repo-root if files were added in ReNamer via a mapped drive (e.g. Z:\\) but the script
+lives on a UNC path.
 - rest_of_repo_renamer_mapping*.csv — Mapping rule Match=basename when unambiguous.
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import os
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -71,6 +78,25 @@ def build_newrel_from_imdb(display: str, year: str, ext: str) -> str:
     return f"{base}{ext}"
 
 
+def rel_path_to_absolute_path_string(repo_root: Path, rel_s: str) -> str:
+    normalized = rel_s.replace("/", "\\")
+    segments: list[str] = [seg for seg in normalized.split("\\") if seg != ""]
+    combined = repo_root.joinpath(*segments)
+    return os.path.normpath(str(combined))
+
+
+def write_renamer_import_csv_absolute(
+    out_path: Path,
+    rel_to_new_name: dict[str, str],
+    repo_root_for_absolute_paths: Path,
+) -> None:
+    with out_path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, lineterminator="\n")
+        for rel_s in sorted(rel_to_new_name.keys(), key=lambda s: s.lower()):
+            abs_path = rel_path_to_absolute_path_string(repo_root_for_absolute_paths, rel_s)
+            w.writerow([abs_path, rel_to_new_name[rel_s]])
+
+
 def load_imdb_stem_lookup(imdb_path: Path) -> dict[str, tuple[str, str]]:
     mp: dict[str, tuple[str, str]] = {}
     with imdb_path.open(newline="", encoding="utf-8-sig") as f:
@@ -85,12 +111,15 @@ def load_imdb_stem_lookup(imdb_path: Path) -> dict[str, tuple[str, str]]:
     return mp
 
 
-def main() -> None:
+def main(repo_root_for_import_csv: Path) -> None:
     script_dir = Path(__file__).resolve().parent
+    csv_root = repo_root_for_import_csv.resolve()
     source_map = script_dir / "combined_rename_map.csv"
     imdb_log = script_dir / "imdb_title_year_from_log.csv"
     out_audit = script_dir / "rest_of_repo_rename_matched.csv"
     out_import = script_dir / "rest_of_repo_import_paths_newnames.csv"
+    out_import_renamer = script_dir / "renamer_no_combined_import_paths_newnames.csv"
+    out_import_all_videos = script_dir / "renamer_no_combined_all_videos_import.csv"
     out_renamer = script_dir / "rest_of_repo_renamer_mapping.csv"
     out_skip = script_dir / "rest_of_repo_renamer_mapping_skip_ext.csv"
     out_unmatched = script_dir / "rest_of_repo_unmatched_paths.txt"
@@ -120,6 +149,7 @@ def main() -> None:
         imdb_by_norm = load_imdb_stem_lookup(imdb_log)
 
     matched: list[tuple[str, str, str, str]] = []
+    scan_rows: list[tuple[str, str, str | None, str]] = []
     unmatched: list[str] = []
     basename_to_targets: dict[str, set[str]] = {}
 
@@ -144,9 +174,11 @@ def main() -> None:
                     source = "imdb_log"
 
             if newrel is None:
+                scan_rows.append((rel_s, fn, None, "unmatched"))
                 unmatched.append(rel_s)
                 continue
 
+            scan_rows.append((rel_s, fn, newrel, source))
             matched.append((rel_s, newrel, fn, source))
             bn = fn.casefold()
             if bn not in basename_to_targets:
@@ -168,10 +200,16 @@ def main() -> None:
     rel_path_pairs = [(rel_s, newrel) for rel_s, newrel, _fn, _src in matched]
     rel_to_final = disambiguate_newrel_per_relative_path(rel_path_pairs)
 
-    with out_import.open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f, lineterminator="\n")
-        for rel_s in sorted(rel_to_final.keys(), key=lambda s: s.lower()):
-            w.writerow([rel_s, rel_to_final[rel_s]])
+    rel_to_final_all: dict[str, str] = {}
+    for rel_s, fn, newrel, _src in scan_rows:
+        if newrel is None:
+            rel_to_final_all[rel_s] = fn
+        else:
+            rel_to_final_all[rel_s] = rel_to_final[rel_s]
+
+    write_renamer_import_csv_absolute(out_import, rel_to_final, csv_root)
+    write_renamer_import_csv_absolute(out_import_renamer, rel_to_final, csv_root)
+    write_renamer_import_csv_absolute(out_import_all_videos, rel_to_final_all, csv_root)
 
     by_basename: dict[str, list[tuple[str, str]]] = defaultdict(list)
     for rel_s, newrel, fn, _src in matched:
@@ -212,7 +250,9 @@ def main() -> None:
 
     n_combined = sum(1 for t in matched if t[3] == "combined_map")
     n_imdb = sum(1 for t in matched if t[3] == "imdb_log")
+    print("import_csv_absolute_root", str(csv_root))
     print("matched_files", len(matched), "combined_map", n_combined, "imdb_log", n_imdb)
+    print("all_videos_import_rows", len(rel_to_final_all), "(includes unmatched as identity)")
     print("import_paths_rows", len(rel_to_final))
     print("renamer_mapping_rows", len(final_pairs), "(basename-only; skipped if ambiguous)")
     print("basename_mapping_skipped", len(basename_skipped))
@@ -220,6 +260,8 @@ def main() -> None:
     print(
         "wrote",
         out_import.name,
+        out_import_renamer.name,
+        out_import_all_videos.name,
         out_audit.name,
         out_renamer.name,
         out_skip.name,
@@ -228,5 +270,26 @@ def main() -> None:
     )
 
 
+def parse_cli_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Build den4b ReNamer import CSVs. Column 1 is absolute path (required by ReNamer)."
+        )
+    )
+    parser.add_argument(
+        "--repo-root",
+        type=Path,
+        dest="repo_root",
+        help=(
+            "Absolute repo root for CSV column 1. Use when ReNamer lists files under a mapped "
+            "drive (e.g. Z:\\Rifftrax) but this script runs from \\\\server\\share\\Rifftrax."
+        ),
+    )
+    return parser.parse_args(argv)
+
+
 if __name__ == "__main__":
-    main()
+    script_dir_for_default = Path(__file__).resolve().parent
+    cli = parse_cli_args(sys.argv[1:])
+    chosen_root = cli.repo_root if cli.repo_root is not None else script_dir_for_default
+    main(chosen_root)

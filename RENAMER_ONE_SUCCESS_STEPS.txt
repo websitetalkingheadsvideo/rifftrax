@@ -1,5 +1,6 @@
 NOTE: Combined\ renames are done; combined_rename_map*.csv rows were cleared.
-Below was the old Solo proof. For other trees use rest_of_repo_import_paths_newnames.csv.
+Below was the old Solo proof. For other trees use renamer_no_combined_import_paths_newnames.csv
+(same data as rest_of_repo_import_paths_newnames.csv; excludes Combined\).
 
 ONE guaranteed test (do not skip steps)
 
