@@ -6,9 +6,7 @@ import csv
 import os
 from pathlib import Path
 
-
-def norm(s: str) -> str:
-    return "".join(c.lower() for c in s if not c.isspace())
+from renamer_mapping_common import norm
 
 
 def main() -> None:

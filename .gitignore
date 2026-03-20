@@ -20,3 +20,7 @@ $$JetTHM$$.cache
 
 # Editor/Cursor local state
 .cursor/
+
+# Python
+__pycache__/
+*.pyc

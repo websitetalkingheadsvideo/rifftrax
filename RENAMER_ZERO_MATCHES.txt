@@ -1,0 +1,28 @@
+den4b ReNamer — Preview shows no changes (Mapping rule)
+
+1) MARK FILES
+   Only checked (marked) rows are renamed. Select all -> ensure every row has its mark
+   checkbox on. (Selection highlight is not enough.)
+
+2) INVERSE MAPPING
+   Mapping rule: "Inverse mapping" must be OFF. If ON, Match/New Name are swapped and
+   nothing matches.
+
+3) SKIP EXTENSION
+   Must match the file you load:
+   - *_renamer_mapping.csv          -> Skip extension OFF
+   - *_renamer_mapping_skip_ext.csv -> Skip extension ON
+
+4) WRONG CSV FOR THE FOLDER
+   combined_rename_map_renamer_mapping*.csv = letter-spaced basenames under Combined\ only.
+   rest_of_repo_* = everything except Combined\. Do not mix.
+
+5) USE IMPORT INSTEAD OF MAPPING (recommended for rest_of_repo)
+   Files pane toolbar -> Export menu -> "Import file paths and new names"
+   File: rest_of_repo_import_paths_newnames.csv
+   Paths are relative to the folder that contains that CSV (repo root). No Mapping rule.
+   Remove other rules or preview after import only.
+
+6) MATCH TEXT MUST EQUAL "Name" COLUMN
+   Add one file, read Name exactly (including extension). First column of Mapping must
+   match that string when Partial match is OFF.

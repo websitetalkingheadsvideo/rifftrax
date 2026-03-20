@@ -1,3 +1,6 @@
+NOTE: Combined\ renames are done; combined_rename_map*.csv rows were cleared.
+Below was the old Solo proof. For other trees use rest_of_repo_import_paths_newnames.csv.
+
 ONE guaranteed test (do not skip steps)
 
 1) ReNamer: File -> New (or Ctrl+N). Remove every rule.
