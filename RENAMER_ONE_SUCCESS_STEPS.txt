@@ -1,0 +1,31 @@
+ONE guaranteed test (do not skip steps)
+
+1) ReNamer: File -> New (or Ctrl+N). Remove every rule.
+
+2) Add Files (not Add Folders). Pick exactly this file:
+   \\amber\Rifftrax\Combined\Star Wars\StarWarsSolo2018.mkv
+
+3) Confirm the Name column shows exactly:
+   StarWarsSolo2018.mkv
+   (If it shows anything else, stop and use that exact text in step 6 instead.)
+
+4) Add rule -> Mapping. Turn OFF all other rules.
+
+5) Mapping -> Table -> Clear -> Load from file ->
+   \\amber\Rifftrax\RENAMER_MAPPING_PROOF_ONE_FILE.csv
+
+6) After load, click the first "Match" cell. It must be exactly:
+   StarWarsSolo2018.mkv
+   with NO quotes, NO extra spaces. If it is wrong, fix it by hand to match step 3.
+
+7) Mapping options:
+   - Partial match: OFF
+   - Case sensitive: OFF
+   - Skip extension: OFF
+
+8) Preview. New Name should be the real title:
+   Solo A Star Wars Story (2018).mkv
+
+9) If Preview still shows no change: do not use CSV. In the Mapping table type by hand:
+   Match:  (paste from Name column)
+   New Name: Solo A Star Wars Story (2018).mkv
