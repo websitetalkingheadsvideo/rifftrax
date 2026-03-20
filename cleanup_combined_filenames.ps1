@@ -2,7 +2,9 @@ param(
     [Parameter(Mandatory = $false)]
     [string]$TargetRoot = '\\amber\Rifftrax\Combined',
     [Parameter(Mandatory = $true)]
-    [switch]$DoIt
+    [switch]$DoIt,
+    [Parameter(Mandatory = $false)]
+    [switch]$NoPrettySpaces
 )
 
 Set-StrictMode -Version Latest
@@ -28,10 +30,17 @@ function Convert-UnicodeSpacesToAscii {
         [string]$Value
     )
 
-    $t = $Value -replace '[\u200B-\u200D\uFEFF]', ''
+    $t = $Value.Trim()
+    $t = $t.Normalize([System.Text.NormalizationForm]::FormKC)
+    $t = $t -replace '[\u200B-\u200D\uFEFF]', ''
     $t = $t -replace '\p{Zs}+', ' '
     $t = $t -replace '\s+', ' '
     return $t.Trim()
+}
+
+# Only real video heights (not "3720p" inside "1993720p").
+function Get-ResolutionHeightAlternationPattern {
+    return '(?:360|480|540|576|720|768|1080|1440|2160|4320|8640)'
 }
 
 # Some renames/tools produced "C a t s" / "R i f f t r a x" / "H E V C" - merge those runs so stripping works.
@@ -59,7 +68,14 @@ function Merge-ConsecutiveSingleCharAlnumTokens {
     $acc = New-Object System.Text.StringBuilder
 
     foreach ($p in $parts) {
-        if ($p.Length -eq 1 -and $p -match '^[A-Za-z0-9]$') {
+        # Use Unicode-aware letter/digit check. Explorer can show "AeonFlux" but chars may be fullwidth
+        # or compatibility forms; [A-Za-z0-9] fails, every char becomes its own token, -join ' ' -> "A e o n".
+        $isSingleLetterOrDigit = $false
+        if ($p.Length -eq 1) {
+            $ch0 = $p[0]
+            $isSingleLetterOrDigit = [char]::IsLetterOrDigit($ch0)
+        }
+        if ($isSingleLetterOrDigit) {
             # "6c" + "h" as tokens: do not start a new acc with lone "h" - append to "\d+c" word
             if ($acc.Length -eq 0 -and $p -eq 'h' -and $out.Count -gt 0) {
                 $last = $out[$out.Count - 1]
@@ -68,7 +84,7 @@ function Merge-ConsecutiveSingleCharAlnumTokens {
                     continue
                 }
             }
-            [void]$acc.Append([char]$p[0])
+            [void]$acc.Append($p[0])
         } else {
             if ($acc.Length -gt 0) {
                 [void]$out.Add($acc.ToString())
@@ -104,6 +120,95 @@ function Merge-ConsecutiveSingleCharAlnumTokensUntilStable {
     return $cur
 }
 
+# When filenames have zero spaces (user collapsed them), token-splitting cannot see 1080p/Rifftrax/etc.
+# Peel known release/encode tails from the RIGHT on the compact string (case-insensitive).
+function Invoke-StripGluedReleaseTailOnce {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Value
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return $Value
+    }
+
+    $patterns = [string[]]@(
+        '(?i)(?:h\.?26[45]|x26[45]|h26[45])$',
+        '(?i)(?:hevc|avc|av1)$',
+        '(?i)(?:aac|ac3|dts|truehd|flac|eac3)$',
+        '(?i)v\d+$',
+        '(?i)\d+ch$',
+        '(?i)rifftrax$',
+        ('(?i)' + (Get-ResolutionHeightAlternationPattern) + 'p$'),
+        '(?i)(?:webrip|webdl|bluray|bdrip|brrip|remux|hdtv|dvdrip)$',
+        '(?i)dualaudio$'
+    )
+
+    foreach ($p in $patterns) {
+        $next = $Value -replace $p, ''
+        if ($next -ne $Value) {
+            return $next
+        }
+    }
+
+    return $Value
+}
+
+function Invoke-StripGluedReleaseTailUntilStable {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Value
+    )
+
+    $prev = $null
+    $cur = $Value
+    $guard = 0
+    while ($prev -ne $cur) {
+        $prev = $cur
+        $cur = Invoke-StripGluedReleaseTailOnce -Value $cur
+        $guard += 1
+        if ($guard -gt 200) {
+            throw "Invoke-StripGluedReleaseTailUntilStable: guard exceeded"
+        }
+    }
+    return $cur
+}
+
+# "Cats2019" / "Beowulf2007" -> space before trailing year (Plex-friendly), without eating titles like "300".
+function Add-SpaceBeforeTrailingMovieYear {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Value
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return $Value
+    }
+
+    $m = [regex]::Match($Value, '^(?i)(.+)((?:19|20)\d{2})$')
+    if (-not $m.Success) {
+        return $Value
+    }
+
+    $prefix = [string]$m.Groups[1].Value
+    $yearText = [string]$m.Groups[2].Value
+    if ($prefix.Length -lt 1) {
+        return $Value
+    }
+
+    $yearNum = 0
+    $parsed = [int]::TryParse($yearText, [ref]$yearNum)
+    if (-not $parsed) {
+        return $Value
+    }
+
+    if ($yearNum -lt 1900 -or $yearNum -gt 2035) {
+        return $Value
+    }
+
+    return ($prefix + ' ' + $yearText)
+}
+
 # Regex often misses glued or oddly spaced release tails; this peels tokens from the RIGHT.
 function Invoke-StripReleaseTailByTokens {
     param(
@@ -111,8 +216,10 @@ function Invoke-StripReleaseTailByTokens {
         [string]$Value
     )
 
-    $patternWeb = '^(webdl|webrip|web|bluray|bdrip|brrip|remux|hdtv|dvdrip)$'
+    $patternWeb = '^(webdl|webrip|bluray|bdrip|brrip|remux|hdtv|dvdrip)$'
     $patternAudio = '^(aac|ac3|dts|truehd|flac|eac3)$'
+    $resH = Get-ResolutionHeightAlternationPattern
+    $patternResP = '^' + $resH + 'p$'
 
     $normalized = Convert-UnicodeSpacesToAscii -Value $Value
     $normalized = $normalized -replace '_+', ' '
@@ -171,14 +278,14 @@ function Invoke-StripReleaseTailByTokens {
                 $pass = $true
                 continue
             }
-            if ($L -eq 'p' -and $prev -match '^\d{3,4}$') {
+            if ($L -eq 'p' -and $prev -match ('^' + $resH + '$')) {
                 $list.RemoveAt($list.Count - 1)
                 $list.RemoveAt($list.Count - 1)
                 $pass = $true
                 continue
             }
         }
-        if ($L -match '^\d{3,4}p$') {
+        if ($L -match $patternResP) {
             $list.RemoveAt($list.Count - 1)
             $pass = $true
             continue
@@ -206,29 +313,54 @@ function Invoke-StripReleaseTailByTokens {
 function Get-CleanBaseName {
     param(
         [Parameter(Mandatory = $true)]
-        [string]$BaseName
+        [string]$BaseName,
+        [Parameter(Mandatory = $true)]
+        [bool]$SuppressPrettySeparators
     )
 
     # Do NOT run global "[._-]+ -> space" before stripping the tail: a single _ or . between
     # letters (M_o_v_i_e) becomes "space between every letter" and breaks the name.
     $s = Convert-UnicodeSpacesToAscii -Value $BaseName.Trim()
+    if ($SuppressPrettySeparators) {
+        # Drop separators without inserting spaces (keeps glued names glued).
+        $s = $s -replace '_+', ''
+        $s = $s -replace '\.+', ''
+        $s = $s -replace '\-+', ''
+    }
+    else {
+        # Underscore/dot runs usually separate tags; spaces let the token peeler work.
+        $s = $s -replace '_+', ' '
+        $s = $s -replace '\.+', ' '
+        $s = $s -replace '\-+', ' '
+    }
+    $s = $s -replace '\s+', ' '
+    $s = $s.Trim()
 
     $s = Merge-ConsecutiveSingleCharAlnumTokensUntilStable -Value $s
 
+    # Collapsed filenames: "Cats20191080pRifftrax6chx265HEVC" (no spaces) - peel tails, then year.
+    if ($s -notmatch '\s') {
+        $s = Invoke-StripGluedReleaseTailUntilStable -Value $s
+        if (-not $SuppressPrettySeparators) {
+            $s = Add-SpaceBeforeTrailingMovieYear -Value $s
+        }
+    }
+
     # Phase 1: strip release/encode junk from the RIGHT only. Treat space, dot, underscore as
     # separators so "1981_1080_p_Rifftrax_6_ch_2_ch_v_2" is handled like spaced forms.
+    $rh = Get-ResolutionHeightAlternationPattern
     $tailPatterns = @(
         # Exact layout from Combined folder, e.g. "2022 1080p Rifftrax 6ch x265 HEVC" (1080p often has no space)
-        '(?i)\s+(?:\d{3,4}\s*p|\d{3,4}p)\s+rifftrax\s+\d+ch\s+x26[45]\s+(?:hevc|h\.?264|h\.?265|avc|av\s*c)\s*$',
-        '(?i)\s+(?:\d{3,4}\s*p|\d{3,4}p)\s+rifftrax\s+\d+\s*ch\s+x26[45]\s+(?:hevc|h\.?264|h\.?265|avc|av\s*c)\s*$',
+        ('(?i)\s+(?:(?:' + $rh + ')\s*p|(?:' + $rh + ')p)\s+rifftrax\s+\d+ch\s+x26[45]\s+(?:hevc|h\.?264|h\.?265|avc|av\s*c)\s*$'),
+        ('(?i)\s+(?:(?:' + $rh + ')\s*p|(?:' + $rh + ')p)\s+rifftrax\s+\d+\s*ch\s+x26[45]\s+(?:hevc|h\.?264|h\.?265|avc|av\s*c)\s*$'),
         '(?i)[\s._-]+v\s*\d+\s*$',
         '(?i)[\s._-]+\d+\s*ch\s*$',
         '(?i)[\s._-]+\d+\s*c\s*h\s*$',
         '(?i)[\s._-]+\d+c\s+h\s*$',
         '(?i)[\s._-]+\d+ch\s*$',
         '(?i)[\s._-]+rifftrax\s*$',
-        '(?i)[\s._-]+\d{3,4}\s*p\s*$',
-        '(?i)[\s._-]+\d{3,4}p\s*$',
+        ('(?i)[\s._-]+(?:' + $rh + ')\s*p\s*$'),
+        ('(?i)[\s._-]+(?:' + $rh + ')p\s*$'),
         # Do NOT strip trailing (19|20)xx here - that removes real movie years like "Cats 2019".
         '(?i)[\s._-]+(?:x264|x265|h264|h265|hevc|h\.?264|h\.?265|avc|av\s*c|av1|aac|ac3|dts|truehd|flac|webrip|webdl|web\s*dl|bluray|brrip|bdrip|hdtv)\s*$'
     )
@@ -245,19 +377,21 @@ function Get-CleanBaseName {
         }
     }
 
-    # Phase 2: CamelCase word boundaries (TitleCase words only).
-    $s = $s -replace '(?<=[a-z])(?=[A-Z])', ' '
+    if (-not $SuppressPrettySeparators) {
+        # Phase 2: CamelCase word boundaries (TitleCase words only).
+        $s = $s -replace '(?<=[a-z])(?=[A-Z])', ' '
 
-    # Phase 3: multi-character delimiter runs -> space.
-    $s = $s -replace '[._\-]{2,}', ' '
+        # Phase 3: multi-character delimiter runs -> space.
+        $s = $s -replace '[._\-]{2,}', ' '
 
-    # Phase 4: single ._- only BETWEEN two "word" chunks (2+ alnum), not between single letters.
-    $guard = 0
-    while ($s -match '([0-9A-Za-z]{2,})[._\-]([0-9A-Za-z]{2,})') {
-        $s = $s -replace '([0-9A-Za-z]{2,})[._\-]([0-9A-Za-z]{2,})', '$1 $2'
-        $guard += 1
-        if ($guard -gt 200) {
-            throw "Get-CleanBaseName: delimiter loop exceeded guard for input: $BaseName"
+        # Phase 4: single ._- only BETWEEN two "word" chunks (2+ alnum), not between single letters.
+        $guard = 0
+        while ($s -match '([0-9A-Za-z]{2,})[._\-]([0-9A-Za-z]{2,})') {
+            $s = $s -replace '([0-9A-Za-z]{2,})[._\-]([0-9A-Za-z]{2,})', '$1 $2'
+            $guard += 1
+            if ($guard -gt 200) {
+                throw "Get-CleanBaseName: delimiter loop exceeded guard for input: $BaseName"
+            }
         }
     }
 
@@ -286,7 +420,16 @@ $locked = 0
 $failed = 0
 $logLines = New-Object System.Collections.Generic.List[string]
 $reportLines = New-Object System.Collections.Generic.List[string]
+
+$scriptSelf = $MyInvocation.MyCommand.Path
+$scriptItem = Get-Item -LiteralPath $scriptSelf
+$runStamp = ('Script="{0}" ScriptLastWriteUtc={1:o} TargetRoot="{2}" NoPrettySpaces={3}' -f $scriptSelf, $scriptItem.LastWriteTimeUtc, $TargetRoot, $NoPrettySpaces.IsPresent)
+Write-Output $runStamp
+[void]$logLines.Add($runStamp)
+[void]$logLines.Add('')
+
 [void]$reportLines.Add('Cleanup report (open with Notepad). RENAME = would change filename; SAME = already matches computed name.')
+[void]$reportLines.Add($runStamp)
 [void]$reportLines.Add('')
 
 # Only treat real sharing violations as "locked". Phrases like "cannot access the file" appear for
@@ -349,7 +492,7 @@ function Invoke-RenameWithRetry {
 }
 
 foreach ($file in $files) {
-    $cleanBase = Get-CleanBaseName -BaseName $file.BaseName
+    $cleanBase = Get-CleanBaseName -BaseName $file.BaseName -SuppressPrettySeparators $NoPrettySpaces.IsPresent
     $wouldChange = -not [string]::Equals(($cleanBase + $file.Extension), $file.Name, [System.StringComparison]::Ordinal)
     $ob = $file.BaseName -replace "`t", ' '
     $cb = $cleanBase -replace "`t", ' '

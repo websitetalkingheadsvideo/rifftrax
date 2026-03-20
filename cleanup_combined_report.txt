@@ -1,222 +1,217 @@
 Cleanup report (open with Notepad). RENAME = would change filename; SAME = already matches computed name.
+Script="\\amber\Rifftrax\cleanup_combined_filenames.ps1" ScriptLastWriteUtc=2026-03-19T23:35:10.2870731Z TargetRoot="\\amber\Rifftrax\Combined" NoPrettySpaces=True
 
 [SAME]   300
 
-[SAME]   A e o n F l u x
+[SAME]   AeonFlux
 
-[SAME]   A l i e n
+[SAME]   Alien
 
-[SAME]   A n a c o n d a
+[SAME]   Anaconda
 
-[SAME]   B a t m a n & R o b i n
+[SAME]   Batma n&R obin
 
-[SAME]   B a t m a n V S u p e r m a n D a w n O f J u s t i c e T h e a t r i c a l
+[SAME]   BatmanVSupermanDawnOfJusticeTheatrical
 
-[SAME]   B a t t l e f i e l d E a r t h
+[SAME]   BattlefieldEarth
 
-[SAME]   B e o w u l f 2007 1080p R i f f t r a x
+[SAME]   Beowulf 2007
 
-[SAME]   C a p t a i n A m e r i c a T h e F i r s t A v e n g e r
+[SAME]   CaptainAmericaTheFirstAvenger
 
-[SAME]   C a s a b l a n c a
+[SAME]   Casablanca
 
-[SAME]   C a s i n o R o y a l e
+[SAME]   CasinoRoyale
 
-[SAME]   C a t s 2019 1080p R i f f t r a x 6c h x265 H E V C
+[SAME]   Cats 2019
 
-[SAME]   C l a s h O f T h e T i t a n s
+[SAME]   ClashOfTheTitans
 
-[SAME]   C l o v e r f i e l d
+[SAME]   Cloverfield
 
-[SAME]   C o b r a 1986 1080p R i f f t r a x 6c h x265 H E V C
+[SAME]   Cobra 1986
 
-[SAME]   D a r e d e v i l
+[SAME]   Daredevil
 
-[SAME]   D r a g o n W a r s D W a r
+[SAME]   DragonWarsDWar
 
-[SAME]   D u n e 2021 1080p R i f f t r a x 6c h x265 H E V C
+[SAME]   Dune 2021
 
-[SAME]   E r a g o n
+[SAME]   Eragon
 
-[SAME]   F a s t A n d F u r i o u s
+[SAME]   FastAndFurious
 
-[SAME]   G r a v i t y
+[SAME]   Gravity
 
-[SAME]   H a l l o w e e n
+[SAME]   Halloween
 
-[SAME]   H i g h l a n d e r D u a l A u d i o
+[SAME]   Highlander
 
-[SAME]   I A m L e g e n d
+[SAME]   IAmLegend
 
-[SAME]   I n d e p e n d e n c e D a y
+[SAME]   IndependenceDay
 
-[SAME]   J a w s 1975 1080p R i f f t r a x
+[SAME]   Jaws 1975
 
-[SAME]   K r u l l 1983 1080p R i f f t r a x 6c h x265 H E V C
+[SAME]   Krull 1983
 
-[SAME]   L o s t B o y s
+[SAME]   LostBoys
 
-[SAME]   M o n e y P l a n e 2020 1080p R i f f t r a x 6c h x265 H E V C
+[SAME]   MoneyPlane 2020
 
-[SAME]   M o r t a l K o m b a t 1995 1080p R i f f t r a x 6c h x264 A V C
+[SAME]   MortalKombat 1995
 
-[SAME]   M o t h r a
+[SAME]   Mothra
 
-[SAME]   N e x t 2007 1080p R i f f t r a x
+[SAME]   Next 2007
 
-[SAME]   O c e a n s E l e v e n
+[SAME]   OceansEleven
 
-[SAME]   O v e r T h e T o p
+[SAME]   OverTheTop
 
-[SAME]   P a r a n o r m a l A c t i v i t y
+[SAME]   ParanormalActivity
 
-[SAME]   P i r a t e s O f T h e C a r i b b e a n C u r s e O f T h e B l a c k P e a r l
+[SAME]   PiratesOfTheCaribbeanCurseOfTheBlackPearl
 
-[SAME]   P o l t e r g e i s t 1982 c i r c u l a t e t h e t a p e s
+[SAME]   Poltergeis t1982c irculatethetapes
 
-[SAME]   P r e d a t o r
+[SAME]   Predator
 
-[SAME]   R e a d y P l a y e r O n e
+[SAME]   ReadyPlayerOne
 
-[SAME]   R e d D a w n
+[SAME]   RedDawn
 
-[SAME]   R e i g n O f F i r e
+[SAME]   ReignOfFire
 
-[SAME]   R o a d H o u s e 1989 1080p R i f f t r a x1 3R i f f e r R i f f t r a x2 M i k e
+[SAME]   RoadHous e19891080p Rifftra x13R ifferRifftra x2M ike
 
-[SAME]   R u n n i n g M a n
+[SAME]   RunningMan
 
-[SAME]   S t a r s h i p T r o o p e r s
+[SAME]   StarshipTroopers
 
-[SAME]   S t r e e t F i g h t e r 1994 1080p R i f f t r a x 6c h x265 H E V C
+[SAME]   StreetFighter 1994
 
-[SAME]   T h e F i f t h E l e m e n t
+[SAME]   TheFifthElement
 
-[SAME]   T h e G r u d g e
+[SAME]   TheGrudge
 
-[SAME]   T h e H a p p e n i n g 2008 1080p R i f f t r a x 6c h x264 A V C
+[SAME]   TheHappening 2008
 
-[SAME]   T h e I s l a n d O f D r M o r e a u
+[SAME]   TheIslandOfDrMoreau
 
-[SAME]   T h e W i z a r d o f O z (1939)
+[SAME]   TheWizardofO z(1939)
 
-[SAME]   T i t a n i c
+[SAME]   Titanic
 
-[SAME]   T o p G u n M a v e r i c k 2022 1080p R i f f t r a x 6c h x264 A V C
+[SAME]   TopGunMaverick 2022
 
-[SAME]   W i c k e r M a n
+[SAME]   WickerMan
 
-[SAME]   W i l l y W o n k a A n d T h e C h o c o l a t e F a c t o r y
+[SAME]   WillyWonkaAndTheChocolateFactory
 
-[SAME]   W o n d e r W o m a n 1984 2020 1080p R i f f t r a x 6c h x264 A V C
+[SAME]   WonderWoma n1984 2020
 
-[SAME]   H a r r y P o t t e r 1 A n d T h e S o r c e r e r s S t o n e 2001 W i z a r d P e o p l e D e a r R e a d e r
+[SAME]   HarryPotte r1A ndTheSorcerersSton e2001W izardPeopleDearReader
 
-[SAME]   H a r r y P o t t e r 2 A n d T h e C h a m b e r O f S e c r e t s
+[SAME]   HarryPotte r2A ndTheChamberOfSecrets
 
-[SAME]   H a r r y P o t t e r 3 A n d T h e P r i s o n e r O f A z k a b a n
+[SAME]   HarryPotte r3A ndThePrisonerOfAzkaban
 
-[SAME]   H a r r y P o t t e r 4 A n d T h e G o b l e t O f F i r e
+[SAME]   HarryPotte r4A ndTheGobletOfFire
 
-[SAME]   H a r r y P o t t e r 5 A n d T h e O r d e r O f T h e P h o e n i x
+[SAME]   HarryPotte r5A ndTheOrderOfThePhoenix
 
-[SAME]   H a r r y P o t t e r 6 A n d T h e H a l f B l o o d P r i n c e
+[SAME]   HarryPotte r6A ndTheHalfBloodPrince
 
-[SAME]   H a r r y P o t t e r 7 A n d T h e D e a t h l y H a l l o w s P a r t 1
+[SAME]   HarryPotte r7A ndTheDeathlyHallowsPar t1
 
-[SAME]   H a r r y P o t t e r 8 A n d T h e D e a t h l y H a l l o w s P a r t 2
+[SAME]   HarryPotte r8A ndTheDeathlyHallowsPar t2
 
-[SAME]   C r y s t a l S k u l l R i f f t r a x
+[SAME]   CrystalSkull
 
-[SAME]   I n d i a n a J o n e s A n d T h e T e m p l e O f D o o m 1984 1080p B l u R a y x264 Y I F Y
+[SAME]   IndianaJonesAndTheTempleOfDoom 1984 1080p BluRay x264 YIFY
 
-[SAME]   R a i d e r s o f t h e L o s t A r k R i f f t r a x
+[SAME]   RaidersoftheLostArk
 
-[SAME]   J u r a s s i c P a r k 1993 720p R i f f t r a x
+[SAME]   JurassicPar k199
 
-[SAME]   J u r a s s i c P a r k I I I
+[SAME]   JurassicParkIII
 
-[SAME]   J u r a s s i c W o r l d 2015 1080p R i f f t r a x
+[SAME]   JurassicWorld 2015
 
-[SAME]   J u r a s s i c W o r l d F a l l e n K i n g d o m 2018 1080p R i f f t r a x 6c h x264 A V C
+[SAME]   JurassicWorldFallenKingdom 2018
 
-[SAME]   L O T R1 F e l l o w s h i p O f T h e R i n g T h e a t r i c a l 2001 1080p R i f f t r a x
+[SAME]   LOT R1F ellowshipOfTheRingTheatrical 2001
 
-[SAME]   L O T R1 F e l l o w s h i p O f T h e R i n g T h e a t r i c a l
+[SAME]   LOT R2T woTowersTheatrical 2002
 
-[SAME]   L O T R2 T w o T o w e r s T h e a t r i c a l 2002 1080p R i f f t r a x
+[SAME]   LOT R3R eturnOfTheKingTheatrical 2003
 
-[SAME]   L O T R2 T w o T o w e r s T h e a t r i c a l
+[SAME]   Matrix 1999
 
-[SAME]   L O T R3 R e t u r n O f T h e K i n g T h e a t r i c a l 2003 1080p R i f f t r a x
+[SAME]   MatrixReloaded 2003
 
-[SAME]   L O T R3 R e t u r n O f T h e K i n g T h e a t r i c a l
+[SAME]   MatrixRevolutions 2003
 
-[SAME]   M a t r i x 1999 1080p R i f f t r a x
+[SAME]   SpiderMa n2 2004
 
-[SAME]   M a t r i x R e l o a d e d 2003 1080p R i f f t r a x
+[SAME]   SpiderMa n3 2007
 
-[SAME]   M a t r i x R e v o l u t i o n s 2003 1080p R i f f t r a x
+[SAME]   SpiderMan 2002
 
-[SAME]   S p i d e r M a n 2 2004 1080p R i f f t r a x
+[SAME]   StarTrek 2009
 
-[SAME]   S p i d e r M a n 2002 1080p R i f f t r a x
+[SAME]   StarTrekIITheWrathOfKhan 1982
 
-[SAME]   S p i d e r M a n 3 2007 1080p R i f f t r a x
+[SAME]   StarWarsEpisodeIIAttackOfTheClones
 
-[SAME]   S t a r T r e k 2009 1080p R i f f t r a x
+[SAME]   StarWarsEpisodeIIIRevengeOfTheSith
 
-[SAME]   S t a r T r e k I I T h e W r a t h O f K h a n 1982 1080p R i f f t r a x
+[SAME]   StarWarsEpisodeIThePhantomMenac e1999P linkett
 
-[SAME]   S t a r W a r s E p i s o d e I I A t t a c k O f T h e C l o n e s
+[SAME]   StarWarsEpisodeIVANewHop e19771080p Rifftra x6c h2c hPlinkett
 
-[SAME]   S t a r W a r s E p i s o d e I I I R e v e n g e O f T h e S i t h
+[SAME]   StarWarsEpisodeIVANewHop e1977P linkett
 
-[SAME]   S t a r W a r s E p i s o d e I T h e P h a n t o m M e n a c e 1999 P l i n k e t t
+[SAME]   StarWarsEpisodeVIReturnOfTheJedi 1983
 
-[SAME]   S t a r W a r s E p i s o d e I V A N e w H o p e 1977 1080p R i f f t r a x 6c h 2c h P l i n k e t t
+[SAME]   StarWarsEpisodeVIReturnOfTheJedi
 
-[SAME]   S t a r W a r s E p i s o d e I V A N e w H o p e 1977 P l i n k e t t
+[SAME]   StarWarsEpisodeVTheEmpireStrikesBack 1980
 
-[SAME]   S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i 1983 1080p R i f f t r a x
+[SAME]   StarWarsEpisodeVTheEmpireStrikesBack
 
-[SAME]   S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i
+[SAME]   StarWarsRogueOne
 
-[SAME]   S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k 1980 1080p R i f f t r a x
+[SAME]   StarWarsSolo 2018
 
-[SAME]   S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k
+[SAME]   StarWarsSolo2018
 
-[SAME]   S t a r W a r s R o g u e O n e
+[SAME]   StarWarsTheLastJedi
 
-[SAME]   S t a r W a r s S o l o 2018 1080p R i f f t r a x 6c h 2c h x265 H E V C
+[SAME]   TheStarWarsHolidaySpecialhighTV
 
-[SAME]   S t a r W a r s S o l o 2018 x265 H E V C
+[SAME]   StarWarsEpisodeIVANewHope 1977 1080p Rifftrax 6ch 2ch Plinkett
 
-[SAME]   S t a r W a r s T h e L a s t J e d i
+[SAME]   StarWarsEpisodeVIReturnOfTheJedi 1983
 
-[SAME]   T h e S t a r W a r s H o l i d a y S p e c i a l h i g h T V
+[SAME]   StarWarsEpisodeVTheEmpireStrikesBack 1980
 
-[SAME]   S t a r W a r s E p i s o d e I V A N e w H o p e 1977 1080p R i f f t r a x 6c h 2c h P l i n k e t t
+[SAME]   Terminato r3R iseOfTheMachines 2003
 
-[SAME]   S t a r W a r s E p i s o d e V I R e t u r n O f T h e J e d i 1983 1080p R i f f t r a x
+[SAME]   TotalRecallMindBendingEditio n19901080p BluRay x264Y IFY
 
-[SAME]   S t a r W a r s E p i s o d e V T h e E m p i r e S t r i k e s B a c k 1980 1080p R i f f t r a x
+[SAME]   Heroes s01e01
 
-[SAME]   T e r m i n a t o r 3 R i s e O f T h e M a c h i n e s 2003 1080p R i f f t r a x
+[SAME]   StrangerThings s01e01 2016
 
-[SAME]   T o t a l R e c a l l M i n d B e n d i n g E d i t i o n 1990 1080p B l u R a y x264 Y I F Y
+[SAME]   TheIncredibleHulkFinalRoun d1978c irculatethetapes
 
-[SAME]   H e r o e s s01e01
+[SAME]   TheXFilesFightTheFuture 1998
 
-[SAME]   S t r a n g e r T h i n g s s01e01 2016 H E V C
+[SAME]   StarTrek S04E03
 
-[SAME]   T h e I n c r e d i b l e H u l k F i n a l R o u n d 1978 c i r c u l a t e t h e t a p e s
+[SAME]   TV S01E01
 
-[SAME]   T h e X F i l e s F i g h t T h e F u t u r e 1998 1080p R i f f t r a x
-
-[SAME]   S t a r T r e k S04E03
-
-[SAME]   T V S01E01
-
-[SAME]   T V S01E02
+[SAME]   TV S01E02
 

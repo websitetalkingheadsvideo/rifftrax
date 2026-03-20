@@ -1,0 +1,40 @@
+Combined folder: rename from a CSV map (ReNamer / Excel / Cursor).
+
+
+
+Columns (header row required):
+
+  OldRel = current path relative to Combined (e.g. Subdir\file.mkv)
+
+  NewRel = final path relative to Combined (same root). Leave empty to skip that row.
+
+Aliases accepted: From/Source for OldRel; To/Target for NewRel.
+
+
+
+Re-export overwrites the whole CSV; keep a copy if you already filled NewRel.
+
+
+
+1) Double-click RUN_EXPORT_RENAME_TEMPLATE.bat
+
+   -> writes combined_rename_map.csv next to the scripts (creates/overwrites it)
+
+
+
+2) Edit combined_rename_map.csv (fill NewRel), or import into ReNamer and export CSV
+
+   with OldRel + NewRel columns.
+
+
+
+3) RUN_RENAME_FROM_MAP_DRYRUN.bat  -> plan only
+
+
+
+4) RUN_RENAME_FROM_MAP_APPLY.bat   -> renames for real
+
+
+
+Log file: rename_from_map.log
+
