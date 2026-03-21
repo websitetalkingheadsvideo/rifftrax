@@ -1,6 +1,6 @@
 den4b ReNamer — Preview shows no changes (Mapping rule)
 
-See WHICH_CSV_FOR_RENAMER.txt for which file is for Import vs Mapping vs audit.
+See WHICH_CSV_FOR_RENAMER.txt for which CSV to load.
 
 1) MARK FILES
    Only checked (marked) rows are renamed. Select all -> ensure every row has its mark
@@ -15,25 +15,17 @@ See WHICH_CSV_FOR_RENAMER.txt for which file is for Import vs Mapping vs audit.
    - *_renamer_mapping.csv          -> Skip extension OFF
    - *_renamer_mapping_skip_ext.csv -> Skip extension ON
 
+   If both values appear in the first column, the CSV delimiter may be wrong (e.g. Excel
+   re-saved with semicolon). Re-run RUN_FILTER_MAPPING_REST.bat; do not re-save through Excel.
+
 4) WRONG CSV FOR THE FOLDER
    combined_rename_map_renamer_mapping*.csv = letter-spaced basenames under Combined\ only.
    rest_of_repo_* = everything except Combined\. Do not mix.
 
-5) IMPORT CSV: ABSOLUTE PATHS ONLY (most common "zero matches" cause)
-   den4b wiki (ReNamer:Export menu): "This importing feature does not support relative paths,
-   so all file paths must be absolute."
-   Our *import*.csv files use column 1 = full path (e.g. \\amber\Rifftrax\Shorts\foo.mp4).
-   If ReNamer still matches nothing: path TEXT must match how the Files pane lists paths.
-   Example: you added files from Z:\Rifftrax\... but CSV has \\amber\Rifftrax\... — ReNamer
-   often treats those as different strings. Regenerate:
-     python filter_mapping_rest_of_repo.py --repo-root Z:\Rifftrax
-   (Use the same root you use in ReNamer when you Add files/folders.)
-
-   Files pane toolbar -> Export menu -> "Import file paths and new names"
-   Files: renamer_no_combined_all_videos_import.csv (all videos; unmapped = same name)
-   or renamer_no_combined_import_paths_newnames.csv (matched only).
-   No Mapping rule. Mark all rows. Remove other rules or preview after import only.
-
-6) MATCH TEXT MUST EQUAL "Name" COLUMN
+5) MATCH TEXT MUST EQUAL "Name" COLUMN
    Add one file, read Name exactly (including extension). First column of Mapping must
    match that string when Partial match is OFF.
+
+6) BASENAME IN TWO FOLDERS
+   If the same filename would rename to different targets, it is not listed in the mapping
+   CSV (see script output basename_collisions_omitted). Handle those files separately.

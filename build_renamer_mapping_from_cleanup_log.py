@@ -76,20 +76,24 @@ def main() -> None:
         sorted(by_spaced.values(), key=lambda t: t[0].lower())
     )
 
-    def esc(s: str) -> str:
-        if any(c in s for c in ',"'):
-            return '"' + s.replace('"', '""') + '"'
-        return s
-
     def stem(x: str) -> str:
         i = x.rfind(".")
         return x[:i] if i > 0 else x
 
-    renamer_lines = [esc(a) + "," + esc(b) for a, b in final_list]
-    skip_lines = [esc(stem(a)) + "," + esc(stem(b)) for a, b in final_list]
+    def write_mapping_pairs(path: Path, pairs: list[tuple[str, str]], delimiter: str) -> None:
+        with path.open("w", newline="", encoding="utf-8") as f:
+            w = csv.writer(
+                f,
+                delimiter=delimiter,
+                lineterminator="\n",
+                quoting=csv.QUOTE_MINIMAL,
+            )
+            for left, right in pairs:
+                w.writerow([left, right])
 
-    out_renamer.write_text("\n".join(renamer_lines) + "\n", encoding="utf-8")
-    out_skip.write_text("\n".join(skip_lines) + "\n", encoding="utf-8")
+    write_mapping_pairs(out_renamer, final_list, ",")
+    skip_pairs = [(stem(a), stem(b)) for a, b in final_list]
+    write_mapping_pairs(out_skip, skip_pairs, ",")
 
     with out_combined_only.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f, lineterminator="\n")
