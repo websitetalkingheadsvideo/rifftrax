@@ -10,9 +10,9 @@ den4b wiki states relative paths are not supported):
 - renamer_no_combined_all_videos_import.csv — every media file outside Combined\\; unmatched =
   same filename.
 - renamer_no_combined_import_paths_newnames.csv — matched-only import.
-- rest_of_repo_import_paths_newnames.csv — same as renamer_no_combined_import_paths_newnames.csv.
 Use --repo-root if files were added in ReNamer via a mapped drive (e.g. Z:\\) but the script
 lives on a UNC path.
+See WHICH_CSV_FOR_RENAMER.txt in repo root.
 - rest_of_repo_renamer_mapping*.csv — Mapping rule Match=basename when unambiguous.
 """
 from __future__ import annotations
@@ -117,7 +117,6 @@ def main(repo_root_for_import_csv: Path) -> None:
     source_map = script_dir / "combined_rename_map.csv"
     imdb_log = script_dir / "imdb_title_year_from_log.csv"
     out_audit = script_dir / "rest_of_repo_rename_matched.csv"
-    out_import = script_dir / "rest_of_repo_import_paths_newnames.csv"
     out_import_renamer = script_dir / "renamer_no_combined_import_paths_newnames.csv"
     out_import_all_videos = script_dir / "renamer_no_combined_all_videos_import.csv"
     out_renamer = script_dir / "rest_of_repo_renamer_mapping.csv"
@@ -207,7 +206,6 @@ def main(repo_root_for_import_csv: Path) -> None:
         else:
             rel_to_final_all[rel_s] = rel_to_final[rel_s]
 
-    write_renamer_import_csv_absolute(out_import, rel_to_final, csv_root)
     write_renamer_import_csv_absolute(out_import_renamer, rel_to_final, csv_root)
     write_renamer_import_csv_absolute(out_import_all_videos, rel_to_final_all, csv_root)
 
@@ -259,7 +257,6 @@ def main(repo_root_for_import_csv: Path) -> None:
     print("unmatched_files", len(unmatched))
     print(
         "wrote",
-        out_import.name,
         out_import_renamer.name,
         out_import_all_videos.name,
         out_audit.name,

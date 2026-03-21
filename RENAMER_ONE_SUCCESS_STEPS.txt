@@ -1,6 +1,8 @@
 NOTE: Combined\ renames are done; combined_rename_map*.csv rows were cleared.
-Below was the old Solo proof. For other trees use renamer_no_combined_import_paths_newnames.csv
-(same data as rest_of_repo_import_paths_newnames.csv; excludes Combined\).
+Below was the old Solo proof. For other trees: import CSVs use **absolute** paths in column 1
+(ReNamer requirement). Use renamer_no_combined_all_videos_import.csv or
+renamer_no_combined_import_paths_newnames.csv; if ReNamer still matches nothing, regenerate with
+the same root you use to add files, e.g. RUN_FILTER_MAPPING_REST.bat Z:\Rifftrax
 
 ONE guaranteed test (do not skip steps)
 
